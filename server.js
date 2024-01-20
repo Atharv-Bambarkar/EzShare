@@ -1,6 +1,7 @@
 const path = require('path')
 const express = require('express')
 const app = express();
+const cors = require('cors');
 
 const PORT = process.env.PORT || 3000;
 
@@ -9,6 +10,13 @@ app.use(express.json());
 
 const connectDB = require('./config/Db');
 connectDB();
+
+// cors
+const corsOptions = {
+   origin:process.env.ALLOWED_ORIGINS.split(','),
+}
+app.use(cors(corsOptions));
+
 
 //template engine 
 app.set('views',path.join(__dirname,'/views'));
