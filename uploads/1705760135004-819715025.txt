@@ -1,0 +1,4 @@
+SELECT EMP.* ,SAL*12 FROM EMP
+WHERE (sal>1100 and sal<=3000) and (job='MANAGER' or job='CLERK' or job='SALESMAN')
+and (deptno=20 or deptno=30) and (hiredate>'01-JAN-81' and hiredate<='31-DEC-81')
+and (comm<600 or comm>1200) and (SAL*12 <60000) and not job='PRESIDENT';
